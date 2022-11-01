@@ -1,0 +1,13 @@
+.alert-box{
+    background-color: skyblue;
+    padding:20px;
+    color : white;
+    border-radius: 5px;
+    text-align: center;
+    /*이 알림창은 버튼을 누르면 보여주고 싶음. css로 설정하는 것은 동작하기 이전, 평소의 상태를 정의하는 것 즉 숨겨놓음*/
+    display:none;
+    /*display:block은 보여주기*/
+
+
+}
+/*class 선택할 때 앞첨자로 .을 붙여주어야 함*/

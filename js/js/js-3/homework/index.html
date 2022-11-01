@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="title" class="title">알림창임</p>
+        <!--아이디입력하세요 비번입력하세요가 바뀌어야함-->
+        <button class="title" onclick="알림창열기('none');">알림창열기</button>
+    </div>
+
+    <!--<button onclick="1. p태그 내용을 아이디 입력으로 바꿈 2. 띄움"></button>-->
+    <button onclick="아이디알림창()">아이디알림창</button>
+    <button onclick="비밀번호알림창()">비밀번호알림창</button>
+    
+    <script>
+        //버튼 1누르면 아이디입력하세요 알림창 뜸
+        //버튼 2누르면 비밀번호입력하세요 알림창 뜸
+        //근데 이런거 너무 많으면 어떡하지...? 일일이 코드 복붙해서쓸순없음
+        //1. p 태그 내용을 아이디입력으로 바꾸기 기능
+        function 아이디알림창() {
+            document.getElementById('title').innerHTML = '아이디를 입력하세요';
+            //혹은 getElemnetById 대신 getElemnetByClassName 사용하는 것도 가능한데,
+            document.getElementsByClassName('title')[0].innerHTML = '아이디를 입력하세요';
+            //title이라는 className 중 첫 번쨰 classname
+            docuemnt.getElementById('alert').style.display= 'block';
+
+        }
+
+        function 비밀번호알림창() {
+            document.getElementById('title').innerHTML = '비밀번호를 입력하세요';
+            document.getElementById('alert').style.display='block';
+
+        }
+
+
+      
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/*class 부착방식*/
+/*list-group과 show의 속성을 다르게 주기*/
+.list-group{
+    display:none;
+}
+
+.show {
+    display : block;
+}

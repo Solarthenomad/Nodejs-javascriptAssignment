@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!--동적 UI 만드는 스텝(Alert 박스 만들기)-->
+    <!--
+        1. 미리 HTML과 CSS로 디자인 해두기(필요하면 미리 숨겨둔다)
+        2. 필요할 떄 보여달라고 코드짬(자바스크립트로)
+    -->
+    <!--html이랑 css로 알림창 미리 짜두기-->
+    <div class="alert-box" id="alert">알림창임</div>
+    <!--2. 버튼을 누르면 숨겨놓은 알림창을 보여주기그럼 당연히 버튼 눌러야지-->
+    <!--html의 onclick은 버튼을 눌렀을 때 onclick 안에 들어있는 js를 동작할 수 있게 해줌-->
+    <button onclick="document.getElementById('alert').style.display = 'block';">버튼</button>
+    <!--버튼누르면 보여주는 코드짜기-->
+
+    <!--submenu만들기-->
+    <!--미리 까만 박스 만들고 클릭할 때만 죽 내려올 수 있도록 하면 됨-->
+    <!--닫기 버튼 만들기-->
+    <button id = "close" onclick="document.getElementById('alert').style.display='none';" >닫기</button>
+
+    
+
+</body>
+</html>

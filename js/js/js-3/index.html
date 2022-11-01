@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert-box" id = "alert"></div>
+    <button onclick="알림창닫기();">닫기</button>
+    <button onclick="알림창열기();"></button>
+    <!--자바스크립트 function 문법 사용법-->
+    <!--지난 시간에서의 코드들이 굉장히 길다. 따라서 우리는 따로 코드들을 빼서 짧게 축약해서 쓰고 싶다 왜?  function 덕분에!-->
+    <script>
+        //형태
+        function 작명() {}
+
+        function 알림창닫기() {
+            docuemnt.getElementById('alert').style.display = 'none';
+        }
+
+        //버튼 누르면 알람창 열어주는 과정 
+        function 알림창열기() {
+            docuemnt.getElementById('alert').style.display = 'block';
+        }
+
+        //function의 파라미터 문법
+        //여기서 파라미터가 어려우니까 파라미터 = 구멍이라고 두자 
+        //위에서 사실상 거의 비슷한데 너무 함수들이 반복되서 남발되고 있음...이걸 방지해주는 게 파라미터임 
+        function 알림창열기닫기둘다(구멍)  {
+            document.getElementById('alert').style.display = '구멍';
+        }
+
+        //따라서 위의 열고 닫고 버튼들을 아래와 같이 바꿔주는 것이 가능하다. 
+        //비슷한 기능을 가진 애들은 함수를 일일이 만들 필요가 없어짐 
+        
+
+
+    </script>
+    <button onclick="알림창열기닫기둘다(none);"></button>
+    <button onclick="알림창열기닫기둘다(block);"></button>
+
+    
+
+    
+</body>
+</html>
