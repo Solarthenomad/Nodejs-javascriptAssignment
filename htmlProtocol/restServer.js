@@ -36,10 +36,51 @@ http.createServer(async (req, res) => {
                 let body = '';
                 //요청의 body를 스트림 형태로 받는다. 
                 req.on('data', (data) => {
-                    
-                })
+                    body += data;
+                });
+                //요청의 body를 다받은 후에 실행된다.
+                return req.on('end', ()=>{
+                    console.log('POST 본문(Body):', body);
+                    const {name} = JSON.parse(body);
+                    const id = Date.now();
+                    user[id] = name;
+                    res.writeHead(201, {'Content-Type' : 'text/html; charset=utf-8'});
+                    res.end('등록 성공');
+                });
             }
                 
+        } else if (req.method==='PUT') {
+            if(req.url.startsWith('/user/')){
+                const key = req.url.split('/')[2];
+                let body = '';
+                req.on('data', (data) =>{
+                    body += data;
+                });
+                return req.on('end', ()=>{
+                    console.log('PUT 본문(BODY):', body);
+                    users[key] = JSON.parse(body).name;
+                    res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+                    return res.end(JSON.stringify(users));
+                });
+            }
+        } else if(req.method === 'DELETE') {
+            if(req.url.startsWith('/user/')) {
+                const key = req.url.split('/')[2];
+                delete users[key];
+                res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+                return res.end(JSON.stringify(users));
+            }
+
         }
+        res.writeHead(404);
+        return res.end('NOT FOUND');
+
+    } catch(err) {
+        console.error(err);
+        res.writeHead(500);
+        res.writeHead(500, {'Content-Type' : 'text/plain; charset=utf-8'});
+        res.end(err);
     }
+}).listen(8082, ()=>{
+    console.log('8082번 포트에서 서버 대기중입니다.');
 })
