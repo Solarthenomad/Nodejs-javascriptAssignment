@@ -6,7 +6,7 @@ const users = {}; //데이터 저장용
 
 http.createServer(async (req, res) => {
     try {
-        console.log(req.method, req.url );
+        console.log(req.method, req.url ); //  req.method와 req.url을 통해 클라이언트의 요청 메소드와 주소를 파악하고, 그에 따른 응답을 생성해준다. 
         if(req.method === 'GET') {
             if(req.url=== '/') {
                 const data = await fs.readFile(path.join(__dirname, 'restFront.html'));
@@ -16,11 +16,8 @@ http.createServer(async (req, res) => {
                 const data = await fs.readFile(path.join(__dirname, 'about.html'));
                 res.writeHead(200, {'Content-Type' : 'text/html;  charset=utf-8'});
                 return res.end(data);
-            } else if (req.url === '/about') {
-                const data = await fs.readFile(path.join(__dirname, 'about.html'));
-                res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
-                return res.end(data);
-            } else if (req.url === '/users') {
+            } 
+            else if (req.url === '/users') {
                 res.writeHead(200, {'Content-Type': 'text/pain; charset=utf-8'});
                 return res.end(JSON.stringify(users));
             }

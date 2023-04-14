@@ -61,16 +61,17 @@ window.onload = getUser; //화면 로딩할 때 getUser을 호출하기
 
 //폼 제출시에 실행하기
 document.getElementById('form').addEventListener('submit', async(e)=>{
-    e.preventDefault();
-    const name = e.target.username.value;
+    //  form의 submit 이벤트가 발생하면, async 함수가 실행된다. 
+    e.preventDefault(); //기본 동작인 form의 submit을 막는다. 
+    const name = e.target.username.value; // form 태그 안에 있는 input 요소의 name 속성이 username인 요소의 값을 target으로 하여 가져온다. 
     if(!name) {
         return alert('이름을 입력하세요');
     }
     try {
-        await axios.post('/user', {name});
-        getUser();
+        await axios.post('/user', {name}); // axios를 이용하여 POST 요청을 보낸다. 요청 URL은 /user이며, 요청 바디에는 새로 추가할 사용자의 이름을 담은 객체 {name}를 보낸다.
+        getUser(); //서버에서 사용자 목록을 받아와 화면을 업데이트한다. 
     } catch(err) {
         console.error(err);
     }
-    e.target.username.value = '';
+    e.target.username.value = ''; // 사용자 이름을 입력한 input 요소의 값을 비운다. 
 });
