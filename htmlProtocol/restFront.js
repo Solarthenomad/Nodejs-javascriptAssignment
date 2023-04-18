@@ -3,7 +3,7 @@
 
 async function getUser() {
     try { //responst에들어갈 데이터들 (reactFront.html에 들어갈 데이터들을 정의해놓음 : async-await axios로!)
-        const res = await axios.get('/users');  // /users와 연결 요청해준다.  : '/users' API endpoint 에 GET 요청
+        const res = await axios.get('/users');  // /users(서버의 데이터 저장소)와 연결 요청해준다.  : '/users' API endpoint 에 GET 요청
         //서버로부터 응답(response)을 받아오는 코드
         const users= res.data; // /users의 데이터를 받아옴 서버에서 전달된 사용자 정보가 배열의 형태로 담겨있다. 
         const list = document = getElementById('list'); //HTML에서 id가 'list'인 요소를 찾아서 list 변수에 할당하는 코드 
