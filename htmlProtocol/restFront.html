@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restful Server</title>
+    <link rel="" href="./restFront.css"/>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </nav>
+    <div>
+        <form id="form">
+            <input type="text" id="username">
+            <button type="submit">등록</button>
+        </form>
+    </div>
+    <div id="list"></div> <!--list를 생성해준다. restFron.js에서 list div에 정보를 반환함-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script src="./restFront.js"></script>
+    <!--restFront.js에게 데이터를 넘겨줌 :formid=form id=username-->
+    
+</body>
+</html>
