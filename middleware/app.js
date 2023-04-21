@@ -10,6 +10,7 @@ const fs = require('fs');
 dotenv.config();
 
 const app = express();
+
 app.set('port', process.env.PORT || 3000);
 
 
@@ -34,19 +35,7 @@ app.use(session({
     name : 'session-cookie',
 }));
 
-const upload = multer({
-    storage : multer.diskStorage({
-        destination(req,file, done) {
-            done(null, 'uploads/');
-        }, 
-        filename(req, file, done) {
-            const ext = path.extname(file.originalname);
-            done(null, basename(file.originalname, ext) + Date.now()+ext);
-        },
-    }),
-    limits : {fileSize:5 * 1024 *1024},
 
-})
 
 try {
     fs.readdirSync('uploads');
@@ -55,6 +44,30 @@ try {
     fs.mkdirSync('uploads');
 
 }
+const upload = multer({
+    storage : multer.diskStorage({
+        destination(req, file,done){
+            done(null, 'upoads/')
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext); 
+        },
+
+    }),
+    limits : {fileSize : 5 *1024*1024},
+
+});
+
+app.post('/upload', upload.single(image), (req,res)=>{
+    console.log(req.file);
+    res.send('ok');
+
+})
+
+app.get('/', (req,res,next) => {
+    console.log('GET/ 요청세머나 실행됩니다.');
+})
 
 app.use((req, res, next) => {
     console.log('모든 요청에 다 실행됩니다.');
