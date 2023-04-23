@@ -2,6 +2,8 @@
 {% block content %}
 <h1>{{message}}</h1>
 <h2>{{error.status}}</h2>
-<pre>{{}error.stack}</pre>
+<pre>{{error.stack}}</pre>
 
 {% endblock %}
+
+<!--GET/ abc 라우터가 없습니다. 404 가 출력되는 페이지임-->

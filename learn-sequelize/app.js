@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
+
 const {sequelize} = require('./models'); //require('./models')는 require('./models/index.js')와 같다.
+
 const app = express();
 
 app.set('port', process.env.PORT || 3001);
