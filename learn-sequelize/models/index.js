@@ -7,6 +7,8 @@ const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 // process.env.NODE_ENV가 development일 때 적용되는데, 나중에 production으로 바꿔 배포 때 사용한다. => config/config.json의 production 속성을 수정한다.
+const User= require('./user');
+const Comment = require('./comment');
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
@@ -40,5 +42,15 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
+db.User = User;
+db.Comment = Comment;
+
+User.initiate(sequelize);
+Comment.initiate(sequelize);
+
+User.associate(db);
+Comment.associate(db);
 
 module.exports = db;
