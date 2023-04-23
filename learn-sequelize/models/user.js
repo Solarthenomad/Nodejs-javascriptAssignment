@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
-class user extends Sequelize.Model {
+class User extends Sequelize.Model {
     static initiate(sequelize) {
-        user.init({
+        User.init({
             name : {
                 type : Sequelize.STRING(20),
                 allowNull : false,
